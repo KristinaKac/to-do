@@ -1,0 +1,6 @@
+<input [(ngModel)]="name"/>
+<input [(ngModel)]="status"/>
+<button (click)="parentEvent.emit({name, status})">Добавить</button>
+<!-- <button (click)="userService.deleteByFirstName(firstName)">
+	Удалить пользователя под именем: {{firstName}}
+</button> -->

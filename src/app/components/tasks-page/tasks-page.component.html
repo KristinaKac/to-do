@@ -1,3 +1,10 @@
+<app-add-task
+[name]="name"
+[status]="status"
+(parentEvent)="addTask($event)"
+></app-add-task>
+
+
 <app-task 
 *ngFor="let task of taskService.tasks"
 [task]="task"
