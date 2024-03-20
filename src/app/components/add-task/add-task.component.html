@@ -1,12 +1,17 @@
-<button (click)="this.edit = !this.edit">Добавить задачу</button>
+<div class="add_section">
+    <button class="white_btn btn" (click)="this.edit = !this.edit">Добавить задачу</button>
 
-<form [formGroup]="form" (ngSubmit)="submit()" *ngIf="edit">
-    <input formControlName="name" type="text" placeholder="Введите название задачи..." />
-    <div *ngIf="name.errors?.['required'] && name.touched">Пожалуйста, введите название задачи</div>
-    <select formControlName="status">
-        <option value="important">Важная</option>
-        <option value="regular">Обычная</option>
-        <option value="done">Выполненная</option>
-    </select>
-    <button type="submit">Добавить</button>
-</form>
+    <form class="form" [formGroup]="form" (ngSubmit)="submit()" *ngIf="edit">
+        <input class="input" formControlName="name" type="text" placeholder="Введите название задачи..." />
+        <select formControlName="status">
+            <option value="important">Важная</option>
+            <option value="regular">Обычная</option>
+            <option value="done">Выполненная</option>
+        </select>
+        <button class="grey_btn btn" type="submit">Добавить</button>
+    </form>
+    <div 
+    class="error"
+    *ngIf="name.errors?.['required'] && name.touched && edit"
+    >Пожалуйста, введите название задачи</div>
+</div>

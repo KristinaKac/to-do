@@ -1,13 +1,12 @@
 <li class="task">
-    <span class="task_status">{{task.status}}</span>
+    <span class="task_status">{{
+        task.status === 'regular' ? 'Обычная' : task.status === 'done' ? 'Выполненная' : 'Важная'
+    }}</span>
     <span class="task_name">{{task.name}}</span>
-    <button 
-    (click)="editStatusMode = !editStatusMode"
-    >{{editStatusMode ? 'Закрыть' : 'Редактировать'}}</button>
-    <button (click)="deleteEvent.emit(task.id)">Удалить</button>
+    <div class="btns">
+        <button class="grey_btn" (click)="editStatusMode = !editStatusMode">{{editStatusMode ? 'Закрыть' : 'Изменить'}}</button>
+        <button class="grey_btn" (click)="deleteEvent.emit(task.id)">Удалить</button>
+    </div>
 </li>
 
-<app-edit-status 
-*ngIf="editStatusMode" 
-(editStatusEvent)="editStatus($event)"
-></app-edit-status>
+<app-edit-status *ngIf="editStatusMode" (editStatusEvent)="editStatus($event)"></app-edit-status>

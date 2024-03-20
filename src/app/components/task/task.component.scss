@@ -1,0 +1,42 @@
+.task {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid #ececec;
+    padding: 50px 20px 20px;
+    font-size: 13px;
+    column-gap: 15px;
+}
+.task_status {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+}
+.btns {
+    display: flex;
+    align-items: center;
+    column-gap: 10px;
+}
+.grey_btn {
+    text-align: center;
+    vertical-align: middle;
+    border: #ececec 1px solid;
+    border-radius: 9px;
+    padding: 6px 10px;
+    font-size: 12px;
+    background-color: inherit;
+}
+
+.grey_btn:hover {
+    border: #1677ff 1px solid;
+    color: #1677ff;
+}
+.task_status {
+    background-color: #1677ff;
+    padding: 6px 10px;
+    font-size: 12px;
+    border-radius: 9px;
+    color: white;
+}
+

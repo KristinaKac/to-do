@@ -1,14 +1,10 @@
-<app-add-task (parentEvent)="addTask($event)"></app-add-task>
-
-<div>
-    <app-filter (filterEvent)="filter($event)"></app-filter>
-</div>
-
-
-
-<app-task 
-*ngFor="let task of taskService.tasks | filterTasks: nameFilter : statusFilter" 
-[task]="task"
-(deleteEvent)="deleteTask($event)"
-(editStatusEvent)="editStatusTask($event)"
-></app-task>
+<main>
+    <app-add-task (parentEvent)="addTask($event)"></app-add-task>
+    <div>
+        <app-filter (filterEvent)="filter($event)"></app-filter>
+    </div>
+    <div class="task_list">
+        <app-task *ngFor="let task of taskService.tasks | filterTasks: nameFilter : statusFilter" [task]="task"
+            (deleteEvent)="deleteTask($event)" (editStatusEvent)="editStatusTask($event)"></app-task>
+    </div>
+</main>

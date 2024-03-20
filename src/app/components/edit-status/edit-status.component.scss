@@ -1,0 +1,34 @@
+form {
+    display: flex;
+    flex-direction: column;
+    row-gap: 10px;
+    font-size: 13px;
+    padding: 10px 20px 20px;
+    border-bottom: #ececec 1px solid;
+}
+
+.input_block {
+    display: flex;
+    align-items: center;
+    column-gap: 13px;
+}
+
+.input_control {
+    display: flex;
+    align-items: center;
+    column-gap: 4px;
+}
+.grey_btn {
+    text-align: center;
+    vertical-align: middle;
+    border: #ececec 1px solid;
+    border-radius: 9px;
+    padding: 6px 10px;
+    font-size: 12px;
+    background-color: inherit;
+}
+
+.grey_btn:hover {
+    border: #1677ff 1px solid;
+    color: #1677ff;
+}

@@ -1,0 +1,15 @@
+main {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    row-gap: 20px;
+    top: 70px;
+    background-color: white;
+    padding: 40px 35px;
+    border-radius: 14px;
+}
+
+.task_list {
+    border: #ececec 1px solid;
+    border-radius: 12px;
+}

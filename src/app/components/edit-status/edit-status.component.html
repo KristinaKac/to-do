@@ -1,16 +1,23 @@
-<form (ngSubmit)="submit()">
-    <legend>Выберите статус задачи:</legend>
-    <div>
-        <input type="radio" [(ngModel)]="status" name="options" id="important" value="important">
-        <label for="important">Важная</label>
+<form class="form" (ngSubmit)="submit()">
+    <legend class="form_title">Выберите статус задачи:</legend>
+    <div class="input_block">
 
-        <input type="radio" [(ngModel)]="status" name="options" id="regular" value="regular">
-        <label for="regular">Обычная</label>
+        <div class="input_control">
+            <input type="radio" [(ngModel)]="status" name="options" id="important" value="important">
+            <label for="important">Важная</label>
+        </div>
 
-        <input type="radio" [(ngModel)]="status" name="options" id="done" value="done">
-        <label for="done">Выполненная</label>
+        <div class="input_control">
+            <input type="radio" [(ngModel)]="status" name="options" id="regular" value="regular">
+            <label for="regular">Обычная</label>
+        </div>
+
+        <div class="input_control">
+            <input type="radio" [(ngModel)]="status" name="options" id="done" value="done">
+            <label for="done">Выполненная</label>
+        </div>
     </div>
     <div>
-        <button type="submit">Сохранить</button>
+        <button class="grey_btn" type="submit">Сохранить</button>
     </div>
 </form>
