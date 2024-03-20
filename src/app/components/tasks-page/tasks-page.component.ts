@@ -17,6 +17,9 @@ export class TasksPageComponent {
   addTask(value: {name: string, status: 'regular' | 'important' | 'done'}){
     this.taskService.add(value.name, value.status);
   }
+  deleteTask(value: number){
+    this.taskService.delete(value);
+  }
   filter(value: {name: string, status: 'regular' | 'important' | 'done' | 'noStatus'}) {
     this.nameFilter = value.name;
     this.statusFilter = value.status;

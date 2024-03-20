@@ -1,4 +1,6 @@
 <li class="task">
     <span class="task_status">{{task.status}}</span>
     <span class="task_name">{{task.name}}</span>
+    <button>Редактировать</button>
+    <button (click)="deleteEvent.emit(task.id)">Удалить</button>
 </li>

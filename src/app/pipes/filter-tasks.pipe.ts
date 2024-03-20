@@ -9,8 +9,6 @@ export class FilterTasksPipe implements PipeTransform {
   transform(tasks: Task[], name: string, status: 'regular' | 'important' | 'done' | 'noStatus'): Task[] {
     let filterTasks: Task[] = tasks;
 
-    console.log(status)
-
     if ((!status || status === 'noStatus') && name) {
       filterTasks = tasks.filter(task => task.name.toLowerCase().includes(name.toLowerCase()));
     }
