@@ -7,8 +7,18 @@ import { Task } from '../../model/task';
   styleUrl: './task.component.scss'
 })
 export class TaskComponent {
+  editStatusMode: boolean = false;
+
   @Input() task!: Task
 
   @Output()
   public deleteEvent = new EventEmitter();
+
+  @Output()
+  public editStatusEvent = new EventEmitter();
+
+  editStatus(status: 'regular' | 'important' | 'done') {
+    this.editStatusEvent.emit({ id: this.task.id, status });
+    this.editStatusMode = false;
+  }
 }

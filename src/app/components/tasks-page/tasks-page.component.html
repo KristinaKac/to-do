@@ -10,4 +10,5 @@
 *ngFor="let task of taskService.tasks | filterTasks: nameFilter : statusFilter" 
 [task]="task"
 (deleteEvent)="deleteTask($event)"
+(editStatusEvent)="editStatusTask($event)"
 ></app-task>

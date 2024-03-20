@@ -1,7 +1,12 @@
-<input [(ngModel)]="name" />
-<select [(ngModel)]="status" >
-    <option  value="important">Важная</option>
-    <option value="regular">Обычная</option>
-    <option value="done">Выполненная</option>
-</select>
-<button (click)="parentEvent.emit({name, status})">Добавить</button>
+<button (click)="this.edit = !this.edit">Добавить задачу</button>
+
+<form [formGroup]="form" (ngSubmit)="submit()" *ngIf="edit">
+    <input formControlName="name" type="text" placeholder="Введите название задачи..." />
+    <div *ngIf="name.errors?.['required'] && name.touched">Пожалуйста, введите название задачи</div>
+    <select formControlName="status">
+        <option value="important">Важная</option>
+        <option value="regular">Обычная</option>
+        <option value="done">Выполненная</option>
+    </select>
+    <button type="submit">Добавить</button>
+</form>

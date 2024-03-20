@@ -24,4 +24,7 @@ export class TasksPageComponent {
     this.nameFilter = value.name;
     this.statusFilter = value.status;
   }
+  editStatusTask(value: {id: number, status: 'regular' | 'important' | 'done'}) {
+    this.taskService.changeStatus(value.id, value.status);
+  }
 }

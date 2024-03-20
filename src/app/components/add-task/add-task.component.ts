@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-add-task',
@@ -6,9 +7,27 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
   styleUrl: './add-task.component.scss'
 })
 export class AddTaskComponent {
-  public name!: string;
-  public status!: 'regular' | 'important' | 'done' | 'noStatus';
+  public edit: boolean = false;
 
   @Output()
   public parentEvent = new EventEmitter();
+
+  form = new FormGroup({
+    name: new FormControl<string>('', [
+      Validators.required
+    ]),
+    status: new FormControl<'regular' | 'important' | 'done'>('regular')
+  });
+
+  get name() {
+    return this.form.controls.name as FormControl;
+  }
+
+  submit() {
+    if (this.form.value.name === '') { return }
+    this.parentEvent.emit({ name: this.form.value.name, status: this.form.value.status });
+    this.edit = false;
+    this.form.reset();
+    this.form.controls.status = new FormControl<'regular' | 'important' | 'done'>('regular');
+  }
 }

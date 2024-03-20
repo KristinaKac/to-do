@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Output } from '@angular/core';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-filter',
@@ -6,10 +7,22 @@ import { Component, EventEmitter, Output } from '@angular/core';
   styleUrl: './filter.component.scss'
 })
 export class FilterComponent {
-  public name!: string;
-  public status!: 'regular' | 'important' | 'done' | 'noStatus';
 
   @Output()
   public filterEvent = new EventEmitter();
 
+  form = new FormGroup({
+    name: new FormControl<string>('', [
+      Validators.required
+    ]),
+    status: new FormControl<'regular' | 'important' | 'done' | 'noStatus'>('noStatus')
+  });
+
+  get name() {
+    return this.form.controls.name as FormControl;
+  }
+
+  submit() {
+    this.filterEvent.emit({ name: this.form.value.name, status: this.form.value.status });
+  }
 }
