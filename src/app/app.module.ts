@@ -7,13 +7,17 @@ import { AppComponent } from './app.component';
 import { TaskComponent } from './components/task/task.component';
 import { TasksPageComponent } from './components/tasks-page/tasks-page.component';
 import { AddTaskComponent } from './components/add-task/add-task.component';
+import { FilterComponent } from './components/filter/filter.component';
+import { FilterTasksPipe } from './pipes/filter-tasks.pipe';
 
 @NgModule({
   declarations: [
     AppComponent,
     TaskComponent,
     TasksPageComponent,
-    AddTaskComponent
+    AddTaskComponent,
+    FilterComponent,
+    FilterTasksPipe
   ],
   imports: [
     BrowserModule,

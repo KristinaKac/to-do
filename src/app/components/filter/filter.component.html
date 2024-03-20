@@ -1,7 +1,8 @@
 <input [(ngModel)]="name" />
 <select [(ngModel)]="status" >
-    <option  value="important">Важная</option>
+    <option value="noStatus">Любая</option>
+    <option value="important">Важная</option>
     <option value="regular">Обычная</option>
     <option value="done">Выполненная</option>
 </select>
-<button (click)="parentEvent.emit({name, status})">Добавить</button>
+<button (click)="filterEvent.emit({name, status})">Поиск</button>

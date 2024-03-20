@@ -6,8 +6,8 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
   styleUrl: './add-task.component.scss'
 })
 export class AddTaskComponent {
-  @Input() name!: string;
-  @Input() status!: 'regular' | 'important' | 'done';
+  public name!: string;
+  public status!: 'regular' | 'important' | 'done' | 'noStatus';
 
   @Output()
   public parentEvent = new EventEmitter();

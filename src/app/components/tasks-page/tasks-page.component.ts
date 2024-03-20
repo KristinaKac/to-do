@@ -7,8 +7,8 @@ import { TaskService } from '../../services/task.service';
   styleUrl: './tasks-page.component.scss'
 })
 export class TasksPageComponent {
-  public name!: string;
-  public status!: 'regular' | 'important' | 'done';
+  public nameFilter!: string;
+  public statusFilter!: 'regular' | 'important' | 'done' | 'noStatus';
 
   constructor(
     public taskService: TaskService
@@ -16,5 +16,9 @@ export class TasksPageComponent {
 
   addTask(value: {name: string, status: 'regular' | 'important' | 'done'}){
     this.taskService.add(value.name, value.status);
+  }
+  filter(value: {name: string, status: 'regular' | 'important' | 'done' | 'noStatus'}) {
+    this.nameFilter = value.name;
+    this.statusFilter = value.status;
   }
 }
