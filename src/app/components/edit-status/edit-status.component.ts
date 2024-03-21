@@ -1,11 +1,10 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { Task } from '../../model/task';
+import { ChangeDetectionStrategy, Component, EventEmitter, Output } from '@angular/core';
 
 @Component({
   selector: 'app-edit-status',
   templateUrl: './edit-status.component.html',
-  styleUrl: './edit-status.component.scss'
+  styleUrl: './edit-status.component.scss',
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class EditStatusComponent {
   status = 'regular';

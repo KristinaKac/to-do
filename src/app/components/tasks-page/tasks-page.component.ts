@@ -1,10 +1,11 @@
-import { Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { TaskService } from '../../services/task.service';
 
 @Component({
   selector: 'app-tasks-page',
   templateUrl: './tasks-page.component.html',
-  styleUrl: './tasks-page.component.scss'
+  styleUrl: './tasks-page.component.scss',
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class TasksPageComponent {
   public nameFilter!: string;

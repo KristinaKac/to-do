@@ -1,5 +1,7 @@
 <div class="add_section">
-    <button class="white_btn btn" (click)="this.edit = !this.edit">Добавить задачу</button>
+    <button class="white_btn btn" (click)="edit = !edit">
+        {{edit ? 'Скрыть' : 'Добавить задачу'}}
+    </button>
 
     <form class="form" [formGroup]="form" (ngSubmit)="submit()" *ngIf="edit">
         <input class="input" formControlName="name" type="text" placeholder="Введите название задачи..." />
@@ -10,8 +12,6 @@
         </select>
         <button class="grey_btn btn" type="submit">Добавить</button>
     </form>
-    <div 
-    class="error"
-    *ngIf="name.errors?.['required'] && name.touched && edit"
-    >Пожалуйста, введите название задачи</div>
+    <div class="error" *ngIf="name.errors?.['required'] && name.touched && edit">Пожалуйста, введите название задачи
+    </div>
 </div>

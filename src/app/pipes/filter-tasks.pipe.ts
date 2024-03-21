@@ -24,5 +24,4 @@ export class FilterTasksPipe implements PipeTransform {
     }
     return filterTasks;
   }
-
 }
