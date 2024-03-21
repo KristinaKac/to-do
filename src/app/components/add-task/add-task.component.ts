@@ -30,6 +30,6 @@ export class AddTaskComponent {
     this.parentEvent.emit({ name: this.form.value.name, status: this.form.value.status });
     this.edit = false;
     this.form.reset();
-    this.form.controls.status = new FormControl<'regular' | 'important' | 'done'>('regular');
+    this.form.controls.status.setValue('regular')
   }
 }

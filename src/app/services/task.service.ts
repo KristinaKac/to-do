@@ -8,27 +8,27 @@ export class TaskService {
 
   public tasks: Array<Task> = [
     {
-      id: 1,
+      id: '1', //window.crypto.randomUUID(),
       name: 'Купить подарок на день рождение',
       status: 'regular',
     },
     {
-      id: 2,
+      id: '2',
       name: 'Запланировать поездку',
       status: 'important',
     },
     {
-      id: 3,
+      id: '3',
       name: 'Забронировать билеты',
       status: 'important',
     },
     {
-      id: 4,
+      id: '4',
       name: 'Сходить к стоматологу',
       status: 'done',
     },
     {
-      id: 5,
+      id: '5',
       name: 'Купить продукты',
       status: 'regular',
     }
@@ -36,19 +36,19 @@ export class TaskService {
 
   constructor() { }
 
-  public delete(id: number): void {
+  public delete(id: string): void {
     this.tasks = this.tasks.filter(task => task.id !== id);
   }
 
   public add(name: string, status: 'regular' | 'important' | 'done'): void {
     this.tasks.push({
-      id: performance.now(),
+      id: window.crypto.randomUUID(),
       name,
       status
     });
   }
 
-  public changeStatus(id: number, status: 'regular' | 'important' | 'done'): void {
+  public changeStatus(id: string, status: 'regular' | 'important' | 'done'): void {
     this.tasks.map(task => {
       if (task.id === id) {
         task.status = status;

@@ -18,14 +18,14 @@ export class TasksPageComponent {
   addTask(value: {name: string, status: 'regular' | 'important' | 'done'}){
     this.taskService.add(value.name, value.status);
   }
-  deleteTask(value: number){
+  deleteTask(value: string){
     this.taskService.delete(value);
   }
   filter(value: {name: string, status: 'regular' | 'important' | 'done' | 'noStatus'}) {
     this.nameFilter = value.name;
     this.statusFilter = value.status;
   }
-  editStatusTask(value: {id: number, status: 'regular' | 'important' | 'done'}) {
+  editStatusTask(value: {id: string, status: 'regular' | 'important' | 'done'}) {
     this.taskService.changeStatus(value.id, value.status);
   }
 }
