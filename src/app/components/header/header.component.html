@@ -1,0 +1,38 @@
+<section class="header">
+    <div class="header_fixed header">
+        <div class="header_fixed_container">
+
+            <nav class="nav">
+                <ul class="nav_list">
+                    <li class="nav_item">
+                        <a href="#">To Do List</a>
+                    </li>
+                    <li class="nav_item">
+                        <a routerLink="" routerLinkActive="active-link"
+                            [routerLinkActiveOptions]="{exact: true}">Описание</a>
+                    </li>
+                    <li *ngIf="isAuth" class="nav_item">
+                        <a routerLink="tasks" routerLinkActive="active-link"
+                            [routerLinkActiveOptions]="{exact: true}">Задачи</a>
+                    </li>
+                </ul>
+            </nav>
+            
+
+            <div *ngIf="isAuth; else isNotAuth">
+                <button>
+                    Выйти
+                    <fa-icon [icon]="logoutIcon"></fa-icon>
+                </button>
+            </div>
+
+            <ng-template #isNotAuth>
+                <button>
+                    Войти
+                    <fa-icon [icon]="loginIcon"></fa-icon>
+                </button>
+            </ng-template>
+
+        </div>
+    </div>
+</section>
