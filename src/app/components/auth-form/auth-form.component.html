@@ -1,0 +1,26 @@
+<form class="form" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+    <h2 class="form_title">Вход</h2>
+
+    <div class="form_control">
+        <label for="email">Почта</label><br>
+        <input class="input" formControlName="email" type="email" id="email" placeholder="Введите почту..." required>
+    </div>
+    <div class="error" *ngIf="loginForm.controls['email'].invalid && loginForm.controls['email'].touched">
+        <div *ngIf="loginForm.controls['email'].hasError('required')">Необходимо заполнить поле 'почта'</div>
+        <div *ngIf="loginForm.controls['email'].hasError('email')">Пожалуйста, укажите корректный адрес</div>
+    </div>
+
+    <div class="form_control">
+        <label for="password">Пароль</label><br>
+        <input class="input" formControlName="password" type="password" id="password" placeholder="Введите пароль..."
+            required>
+    </div>
+    <div class="error" *ngIf="loginForm.controls['password'].invalid && loginForm.controls['password'].touched">
+        <div *ngIf="loginForm.controls['password'].hasError('required')">Необходимо заполнить поле 'пароль'</div>
+        <div *ngIf="loginForm.controls['password'].hasError('minlength')">Минимальная длина пароля 4 символа</div>
+    </div>
+
+    <div class="form_control">
+        <button class="blue_btn" [disabled]="loginForm.invalid" type="submit">Войти</button>
+    </div>
+</form>

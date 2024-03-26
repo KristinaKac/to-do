@@ -1,3 +1,4 @@
+import { AuthService } from './services/auth.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -6,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrl: './app.component.scss',
 })
 export class AppComponent implements OnInit {
-  title = 'toDo';
+  title = 'toDoList';
 
   ngOnInit(): void {}
 }

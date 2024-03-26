@@ -1,7 +1,6 @@
 import { ChangeDetectionStrategy, Component, EventEmitter, Output } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 
-
 @Component({
   selector: 'app-add-task',
   templateUrl: './add-task.component.html',
@@ -26,7 +25,7 @@ export class AddTaskComponent {
   }
 
   submit() {
-    if (this.form.value.name === '') { return }
+    if (this.form.invalid) { return }
     this.parentEvent.emit({ name: this.form.value.name, status: this.form.value.status });
     this.edit = false;
     this.form.reset();

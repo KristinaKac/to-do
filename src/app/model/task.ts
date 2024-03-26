@@ -1,5 +1,8 @@
-export class Task {
-    id: string = '0';
-    name: string = '';
-    status: 'regular' | 'important' | 'done' = 'regular';
+export interface Task {
+    id: string;
+    name: string;
+    status: 'regular' | 'important' | 'done';
 }
+
+
+

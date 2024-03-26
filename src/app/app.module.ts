@@ -14,6 +14,9 @@ import { EditStatusComponent } from './components/edit-status/edit-status.compon
 import { AuthorizationPageComponent } from './pages/authorization-page/authorization-page.component';
 import { AboutPageComponent } from './pages/about-page/about-page.component';
 import { HeaderComponent } from './components/header/header.component';
+import { AuthFormComponent } from './components/auth-form/auth-form.component';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
+import { authInterceptor } from './interceptor/auth.interceptor';
 
 @NgModule({
   declarations: [
@@ -26,14 +29,16 @@ import { HeaderComponent } from './components/header/header.component';
     EditStatusComponent,
     AuthorizationPageComponent,
     AboutPageComponent,
-    HeaderComponent
+    HeaderComponent,
+    AuthFormComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    FontAwesomeModule
+    FontAwesomeModule,
+    HttpClientModule
   ],
   exports: [
     TaskComponent,
@@ -42,7 +47,9 @@ import { HeaderComponent } from './components/header/header.component';
     FormsModule,
     ReactiveFormsModule
   ],
-  providers: [],
+  providers: [
+    { provide: HTTP_INTERCEPTORS, useClass: authInterceptor, multi: true },
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

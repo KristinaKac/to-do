@@ -9,28 +9,27 @@
                     </li>
                     <li class="nav_item">
                         <a routerLink="" routerLinkActive="active-link"
-                            [routerLinkActiveOptions]="{exact: true}">Описание</a>
+                            [routerLinkActiveOptions]="{exact: true}">О проекте</a>
                     </li>
-                    <li *ngIf="isAuth" class="nav_item">
+                    <li *ngIf="authService.user" class="nav_item">
                         <a routerLink="tasks" routerLinkActive="active-link"
                             [routerLinkActiveOptions]="{exact: true}">Задачи</a>
                     </li>
                 </ul>
             </nav>
-            
 
-            <div *ngIf="isAuth; else isNotAuth">
-                <button>
+            <div *ngIf="authService.user; else isNotAuth">
+                <button (click)="logout()" class="white_btn">
                     Выйти
                     <fa-icon [icon]="logoutIcon"></fa-icon>
                 </button>
             </div>
 
             <ng-template #isNotAuth>
-                <button>
+                <a class="white_btn" routerLink="login">
                     Войти
                     <fa-icon [icon]="loginIcon"></fa-icon>
-                </button>
+                </a>
             </ng-template>
 
         </div>

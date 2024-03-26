@@ -1,40 +1,24 @@
+import { Observable, catchError } from 'rxjs';
 import { Injectable } from '@angular/core';
 import { Task } from '../model/task';
+import { environment } from '../../environments/environment.development';
+import { HttpClient } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
 })
 export class TaskService {
+  baseURL: string = 'http://localhost:3000/taskList';
 
-  public tasks: Array<Task> = [
-    {
-      id: '1', //window.crypto.randomUUID(),
-      name: 'Купить подарок на день рождение',
-      status: 'regular',
-    },
-    {
-      id: '2',
-      name: 'Запланировать поездку',
-      status: 'important',
-    },
-    {
-      id: '3',
-      name: 'Забронировать билеты',
-      status: 'important',
-    },
-    {
-      id: '4',
-      name: 'Сходить к стоматологу',
-      status: 'done',
-    },
-    {
-      id: '5',
-      name: 'Купить продукты',
-      status: 'regular',
-    }
-  ]
+  public tasks!: Array<Task>;
 
-  constructor() { }
+  constructor(
+    public http: HttpClient
+  ) { }
+
+  public getAll(): Observable<Task[] | null> {
+    return this.http.get<Array<Task>>(`${this.baseURL}`)
+  }
 
   public delete(id: string): void {
     this.tasks = this.tasks.filter(task => task.id !== id);
