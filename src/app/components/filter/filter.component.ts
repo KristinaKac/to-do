@@ -13,9 +13,7 @@ export class FilterComponent {
   public filterEvent = new EventEmitter();
 
   form = new FormGroup({
-    name: new FormControl<string>('', [
-      Validators.required
-    ]),
+    name: new FormControl<string>('', [Validators.required]),
     status: new FormControl<'regular' | 'important' | 'done' | 'noStatus'>('noStatus')
   });
 

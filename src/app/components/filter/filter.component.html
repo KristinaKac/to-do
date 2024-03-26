@@ -1,5 +1,5 @@
-<form class="form" [formGroup]="form" (ngSubmit)="submit()">
-    <input class="input" formControlName="name" type="text" placeholder="Поиск задач..." />
+<form class="task_form" [formGroup]="form" (ngSubmit)="submit()">
+    <input class="task_input" formControlName="name" type="text" placeholder="Поиск задач..." />
     <select formControlName="status">
         <option value="noStatus">Все статусы</option>
         <option value="important">Важная</option>
@@ -8,3 +8,4 @@
     </select>
     <button class="grey_btn btn" type="submit">Поиск</button>
 </form>
+

@@ -5,11 +5,11 @@ import { IUser } from '../../model/user';
 import { Subscription } from 'rxjs';
 
 @Component({
-  selector: 'app-authorization-page',
-  templateUrl: './authorization-page.component.html',
-  styleUrl: './authorization-page.component.scss'
+  selector: 'app-login-page',
+  templateUrl: './login-page.component.html',
+  styleUrl: './login-page.component.scss'
 })
-export class AuthorizationPageComponent implements OnDestroy {
+export class LoginPageComponent implements OnDestroy {
   private router: Router = inject(Router);
   private subscription: Subscription | null = null;
 

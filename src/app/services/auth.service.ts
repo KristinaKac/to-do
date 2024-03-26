@@ -42,6 +42,23 @@ export class AuthService {
         })
       )
   }
+  registration(fio: string, email: string, password: string): Observable<IUser | null> {
+    return this.http
+      .post<{ token: string }>(`${this.baseURL}/registration`, { fio, email, password })
+      .pipe(
+        tap((response: { token: string }) =>
+        {console.log(response)
+          localStorage.setItem('token', response.token)}
+        ),
+        map((response: { token: string }) =>
+          this.parseJWT(response.token)
+        ),
+        catchError((err): Observable<null> => {
+          alert(err.error.message)
+          return of(null);
+        })
+      )
+  }
 
   logout() {
     localStorage.removeItem('token');

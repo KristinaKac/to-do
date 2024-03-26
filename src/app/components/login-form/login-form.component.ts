@@ -2,11 +2,11 @@ import { Component, EventEmitter, Output } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
-  selector: 'app-auth-form',
-  templateUrl: './auth-form.component.html',
-  styleUrl: './auth-form.component.scss'
+  selector: 'app-login-form',
+  templateUrl: './login-form.component.html',
+  styleUrl: './login-form.component.scss'
 })
-export class AuthFormComponent {
+export class LoginFormComponent {
   loginForm: FormGroup
 
   @Output() loginEvent = new EventEmitter();

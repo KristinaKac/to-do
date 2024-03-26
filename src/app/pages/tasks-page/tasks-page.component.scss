@@ -1,14 +1,13 @@
 .tasks_page {
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    max-width: 900px;
-    min-width: 400px;
+    display: grid;
     row-gap: 20px;
-    top: 70px;
+    position: relative;
+    margin: 0 auto;
     background-color: white;
     padding: 40px 35px;
     border-radius: 14px;
+    max-width: 900px;
+    min-width: 400px;
 }
 
 .task_list {

@@ -8,8 +8,8 @@
                         <a href="#">To Do List</a>
                     </li>
                     <li class="nav_item">
-                        <a routerLink="" routerLinkActive="active-link"
-                            [routerLinkActiveOptions]="{exact: true}">О проекте</a>
+                        <a routerLink="" routerLinkActive="active-link" [routerLinkActiveOptions]="{exact: true}">О
+                            проекте</a>
                     </li>
                     <li *ngIf="authService.user" class="nav_item">
                         <a routerLink="tasks" routerLinkActive="active-link"
@@ -26,10 +26,15 @@
             </div>
 
             <ng-template #isNotAuth>
-                <a class="white_btn" routerLink="login">
-                    Войти
-                    <fa-icon [icon]="loginIcon"></fa-icon>
-                </a>
+                <div class="btns">
+                    <a class="white_btn" routerLink="registration">
+                        Регистрация
+                    </a>
+                    <a class="white_btn" routerLink="login">
+                        Войти
+                        <fa-icon [icon]="loginIcon"></fa-icon>
+                    </a>
+                </div>
             </ng-template>
 
         </div>

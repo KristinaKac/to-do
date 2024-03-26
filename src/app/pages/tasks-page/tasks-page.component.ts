@@ -12,7 +12,6 @@ import { Subscription } from 'rxjs';
 export class TasksPageComponent implements OnInit, OnDestroy {
   public nameFilter!: string;
   public statusFilter!: 'regular' | 'important' | 'done' | 'noStatus';
-
   private subscription: Subscription | null = null;
 
   constructor(
@@ -23,7 +22,7 @@ export class TasksPageComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
     this.taskService.getAll().subscribe((data: Array<Task> | null) => {
       if (data) {
-        this.taskService.tasks = data
+        this.taskService.tasks = data;
         this.cdr.detectChanges();
       }
     });

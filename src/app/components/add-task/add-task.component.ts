@@ -14,9 +14,7 @@ export class AddTaskComponent {
   public parentEvent = new EventEmitter();
 
   form = new FormGroup({
-    name: new FormControl<string>('', [
-      Validators.required
-    ]),
+    name: new FormControl<string>('', [Validators.required]),
     status: new FormControl<'regular' | 'important' | 'done'>('regular')
   });
 
@@ -29,6 +27,6 @@ export class AddTaskComponent {
     this.parentEvent.emit({ name: this.form.value.name, status: this.form.value.status });
     this.edit = false;
     this.form.reset();
-    this.form.controls.status.setValue('regular')
+    this.form.controls.status.setValue('regular');
   }
 }

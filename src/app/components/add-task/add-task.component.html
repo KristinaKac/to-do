@@ -3,8 +3,8 @@
         {{edit ? 'Скрыть' : 'Добавить задачу'}}
     </button>
 
-    <form class="form" [formGroup]="form" (ngSubmit)="submit()" *ngIf="edit">
-        <input class="input" formControlName="name" type="text" placeholder="Введите название задачи..." />
+    <form class="task_form" [formGroup]="form" (ngSubmit)="submit()" *ngIf="edit">
+        <input class="task_input" formControlName="name" type="text" placeholder="Введите название задачи..." />
         <select formControlName="status">
             <option value="important">Важная</option>
             <option value="regular">Обычная</option>

@@ -11,12 +11,14 @@ import { AddTaskComponent } from './components/add-task/add-task.component';
 import { FilterComponent } from './components/filter/filter.component';
 import { FilterTasksPipe } from './pipes/filter-tasks.pipe';
 import { EditStatusComponent } from './components/edit-status/edit-status.component';
-import { AuthorizationPageComponent } from './pages/authorization-page/authorization-page.component';
+import { LoginPageComponent } from './pages/login-page/login-page.component';
 import { AboutPageComponent } from './pages/about-page/about-page.component';
 import { HeaderComponent } from './components/header/header.component';
-import { AuthFormComponent } from './components/auth-form/auth-form.component';
+import { LoginFormComponent } from './components/login-form/login-form.component';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { authInterceptor } from './interceptor/auth.interceptor';
+import { RegisterFormComponent } from './components/register-form/register-form.component';
+import { RegisterPageComponent } from './pages/register-page/register-page.component';
 
 @NgModule({
   declarations: [
@@ -27,10 +29,12 @@ import { authInterceptor } from './interceptor/auth.interceptor';
     FilterComponent,
     FilterTasksPipe,
     EditStatusComponent,
-    AuthorizationPageComponent,
+    LoginPageComponent,
     AboutPageComponent,
     HeaderComponent,
-    AuthFormComponent
+    LoginFormComponent,
+    RegisterFormComponent,
+    RegisterPageComponent
   ],
   imports: [
     BrowserModule,

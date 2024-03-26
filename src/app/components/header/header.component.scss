@@ -1,3 +1,7 @@
+@font-face {
+    font-family: 'Roboto Bold', sans-serif;
+    src: url('../../../assets/font/Roboto-Bold.ttf');
+}
 .header {
     width: 100%;
     height: 50px;
@@ -17,12 +21,11 @@
     align-items: center;
     justify-content: space-between;
     position: relative;
+    column-gap: 20px;
     width: 1280px;
     padding: 0px 20px;
     z-index: 2;
 }
-
-.nav {}
 
 .nav_list {
     display: flex;
@@ -30,25 +33,16 @@
     column-gap: 20px;
 }
 
-.nav_item {}
-
-.nav_item a {}
+.nav_item a {
+    color: rgb(45, 45, 45);
+    font-size: 14px;
+}
 .active-link {
-    text-decoration: underline;
+    font-family: 'Roboto Bold', sans-serif;
+    font-weight: 600;
 }
-
-
-.white_btn {
-    border: #1677ff 1px solid;
-    color: #1677ff;
-    padding: 8px 15px;
-    border-radius: 9px;
-    font-size: 13px;
-    transition: background-color 0.5s;
-    background-color: inherit;
-    cursor: pointer;
-}
-.white_btn:hover {
-    background-color: #1677ff;
-    color: white;
+.btns {
+    display: flex;
+    align-items: center;
+    column-gap: 20px;
 }
