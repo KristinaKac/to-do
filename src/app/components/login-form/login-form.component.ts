@@ -25,5 +25,7 @@ export class LoginFormComponent {
       email: this.loginForm.value.email,
       password: this.loginForm.value.password
     });
+
+    this.loginForm.reset();
   }
 }

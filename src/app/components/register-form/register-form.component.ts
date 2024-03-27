@@ -27,5 +27,7 @@ export class RegisterFormComponent {
       email: this.registerForm.value.email,
       password: this.registerForm.value.password
     });
+
+    this.registerForm.reset();
   }
 }

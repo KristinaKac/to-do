@@ -1,42 +1,61 @@
-import { Observable, catchError } from 'rxjs';
+import { environment } from './../../environments/environment.development';
+import { Observable, catchError, of } from 'rxjs';
 import { Injectable } from '@angular/core';
 import { Task } from '../model/task';
-import { environment } from '../../environments/environment.development';
 import { HttpClient } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
 })
 export class TaskService {
-  baseURL: string = 'http://localhost:3000/taskList';
-
+  baseURL: string = `${environment.apiUrl}`;
   public tasks!: Array<Task>;
 
   constructor(
-    public http: HttpClient
+    private http: HttpClient
   ) { }
 
   public getAll(): Observable<Task[] | null> {
-    return this.http.get<Array<Task>>(`${this.baseURL}`)
+    return this.http
+      .get<Array<Task>>(`${this.baseURL}/taskList`)
+      .pipe(
+        catchError((err): Observable<null> => {
+          alert(err.error.message);
+          return of(null);
+        })
+      );
   }
 
-  public delete(id: string): void {
-    this.tasks = this.tasks.filter(task => task.id !== id);
+  public delete(id: string): Observable<Task | null> {
+    return this.http
+      .delete<Task>(`${this.baseURL}/taskList/${id}`)
+      .pipe(
+        catchError((err): Observable<null> => {
+          alert(err.error.message);
+          return of(null);
+        })
+      );;
   }
 
-  public add(name: string, status: 'regular' | 'important' | 'done'): void {
-    this.tasks.push({
-      id: window.crypto.randomUUID(),
-      name,
-      status
-    });
+  public add(name: string, status: 'regular' | 'important' | 'done'): Observable<Task | null> {
+    return this.http
+      .post<Task>(`${this.baseURL}/taskList`, { id: window.crypto.randomUUID(), name, status })
+      .pipe(
+        catchError((err): Observable<null> => {
+          alert(err.error.message);
+          return of(null);
+        })
+      );
   }
 
-  public changeStatus(id: string, status: 'regular' | 'important' | 'done'): void {
-    this.tasks.map(task => {
-      if (task.id === id) {
-        task.status = status;
-      }
-    })
+  public changeStatus(id: string, status: 'regular' | 'important' | 'done'): Observable<Task | null> {
+    return this.http
+      .patch<Task>(`${this.baseURL}/taskList/${id}`, { status })
+      .pipe(
+        catchError((err): Observable<null> => {
+          alert(err.error.message);
+          return of(null);
+        })
+      );;
   }
 }

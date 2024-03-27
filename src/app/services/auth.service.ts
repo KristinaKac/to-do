@@ -47,8 +47,7 @@ export class AuthService {
       .post<{ token: string }>(`${this.baseURL}/registration`, { fio, email, password })
       .pipe(
         tap((response: { token: string }) =>
-        {console.log(response)
-          localStorage.setItem('token', response.token)}
+        localStorage.setItem('token', response.token)
         ),
         map((response: { token: string }) =>
           this.parseJWT(response.token)

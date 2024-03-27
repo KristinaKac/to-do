@@ -9,18 +9,18 @@ export class FilterTasksPipe implements PipeTransform {
   transform(tasks: Task[], name: string, status: 'regular' | 'important' | 'done' | 'noStatus'): Task[] {
     let filterTasks: Task[] = tasks;
 
-    if ((!status || status === 'noStatus') && name) {
-      filterTasks = tasks.filter(task => task.name.toLowerCase().includes(name.toLowerCase()));
-    }
-    if (status === 'noStatus' && !name) {
-      filterTasks
-    }
-    if ((status && status !== 'noStatus') && !name) {
-      filterTasks = tasks.filter(task => task.status === status);
-    }
-    if (status && status !== 'noStatus' && name) {
-      filterTasks = tasks.filter(task => task.status === status);
-      filterTasks = filterTasks.filter(task => task.name.toLowerCase().includes(name.toLowerCase()));
+    switch (status) {
+      case 'noStatus':
+        name ? filterTasks = tasks.filter(task => task.name.toLowerCase().includes(name.toLowerCase())) : filterTasks;
+        break;
+      case 'regular':
+      case 'done':
+      case 'important':
+        filterTasks = tasks.filter(task => task.status === status);
+        name ? filterTasks = filterTasks.filter(task => task.name.toLowerCase().includes(name.toLowerCase())) : filterTasks;
+        break;
+      default:
+        break;
     }
     return filterTasks;
   }

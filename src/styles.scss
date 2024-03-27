@@ -87,6 +87,7 @@ body {
         font-size: 13px;
         transition: background-color 0.5s;
         background-color: white;
+        cursor: pointer;
     }
     .white_btn:hover {
         background-color: #1677ff;
@@ -126,6 +127,7 @@ body {
         border-radius: 9px;
         padding: 6px 10px;
         font-size: 12px;
+        cursor: pointer;
     }
     
     select:focus {
